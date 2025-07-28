@@ -99,3 +99,19 @@ scrollToTopBtn.addEventListener('click', function() {
     });
 });
 
+const hamburger = document.querySelector('.hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('active');
+});
+
+// Optional: Close menu when clicking a link (for better mobile UX)
+const mobileNavItems = document.querySelectorAll('#mobile-nav a');
+mobileNavItems.forEach(item => {
+  item.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('active');
+  });
+});

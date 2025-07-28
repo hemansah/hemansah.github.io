@@ -39,13 +39,16 @@ body.dark-theme {
     transition: all 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
+
 #theme-icon {
     line-height: 1;
-    font-size: 1.4rem; /* Match button size */
+    font-size: 1.4rem;
+    /* Match button size */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .theme-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
@@ -75,9 +78,12 @@ header {
     align-items: center;
     gap: 40px;
 }
+
 .profile-image {
-    width: 200px;  /* Set desired size */
-    aspect-ratio: 1/1;  /* Forces square shape */
+    width: 200px;
+    /* Set desired size */
+    aspect-ratio: 1/1;
+    /* Forces square shape */
     border-radius: 50%;
     overflow: hidden;
 }
@@ -293,9 +299,12 @@ body.dark-theme .skill-category h3 {
     transition: all 0.3s ease;
     border: 1px solid #ecf0f1;
 }
+
 .skill-tag .icon {
-  display: block; /* remove extra space below SVG */
+    display: block;
+    /* remove extra space below SVG */
 }
+
 .skill-tag:hover {
     background-color: #667eea;
     color: white;
@@ -647,4 +656,97 @@ html {
 
 .scroll-to-top:active {
     transform: translateY(-1px);
+}
+
+
+/* Hamburger button styling */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    z-index: 101;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #2c3e50;
+    /* Match your theme */
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-theme .hamburger .bar {
+    background-color: #e8e8e8;
+    /* Dark mode adjustment */
+}
+
+/* Active state for hamburger (turns into 'X') */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav toggle */
+#mobile-nav {
+    display: none;
+    /* Hidden by default */
+}
+
+#mobile-nav.active {
+    display: block;
+    /* Show when toggled */
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+    #desktop-nav {
+        display: none;
+        /* Hide desktop nav on mobile */
+    }
+
+    #mobile-nav {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        /* Below the sticky nav */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        /* Match your body bg */
+        padding: 20px 0;
+        text-align: center;
+        z-index: 100;
+    }
+
+    body.dark-theme #mobile-nav {
+        background-color: #1a1a1a;
+        /* Dark mode */
+    }
+
+    #mobile-nav li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: block;
+        /* Show on mobile */
+    }
+
+    nav {
+        position: relative;
+        /* Ensure positioning context for absolute elements */
+    }
 }
