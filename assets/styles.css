@@ -39,7 +39,13 @@ body.dark-theme {
     transition: all 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
-
+#theme-icon {
+    line-height: 1;
+    font-size: 1.4rem; /* Match button size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .theme-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
@@ -274,6 +280,8 @@ body.dark-theme .skill-category h3 {
 
 .skill-tag {
     background-color: #f8f9fa;
+    display: inline-flex;
+    align-items: center;
     color: #5a6c7d;
     padding: 8px 16px;
     border-radius: 25px;
@@ -285,7 +293,9 @@ body.dark-theme .skill-category h3 {
     transition: all 0.3s ease;
     border: 1px solid #ecf0f1;
 }
-
+.skill-tag .icon {
+  display: block; /* remove extra space below SVG */
+}
 .skill-tag:hover {
     background-color: #667eea;
     color: white;
