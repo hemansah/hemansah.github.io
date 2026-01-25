@@ -362,6 +362,16 @@ body.dark-theme .experience-item {
     transition: color 0.3s ease;
 }
 
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.company-header img {
+    width: 32px;
+    height: 32px;
+}
+
 body.dark-theme .company-info h3 {
     color: #e8e8e8;
 }
