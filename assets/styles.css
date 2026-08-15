@@ -762,8 +762,8 @@ body.dark-theme .hamburger .bar {
 }
 
 /* =========================================================
-   Experience layout refinement
-   Uses the existing typography, colors and sizing.
+   Experience layout
+   Stable across local browser + Docker/Nginx deployments.
    ========================================================= */
 
 .experience-item {
@@ -773,48 +773,69 @@ body.dark-theme .hamburger .bar {
     padding: 42px 0;
     position: relative;
     border-bottom: 1px solid #ecf0f1;
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover {
-    padding-left: 20px;
+    transition: padding-left 0.3s ease;
 }
 
 .experience-item:last-child {
     border-bottom: none;
 }
 
-.experience-rail {
-    position: relative;
-    min-height: 70px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+.experience-item:hover {
+    padding-left: 20px;
 }
 
-
+.experience-rail {
+    position: relative;
+    width: 92px;
+    min-width: 92px;
+    height: 70px;
+}
 
 .experience-logo {
     position: absolute;
     top: 26px;
+    left: 0;
     width: 92px;
     height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
 }
 
-.experience-logo img {
-    max-width: 80px;
-    max-height: 36px;
-    width: auto;
-    height: auto;
+/*
+ * Do NOT use max-width/max-height here.
+ * They allow logos with different source aspect ratios to render at
+ * different visual sizes. Fixed boxes make the deployed result deterministic.
+ */
+.experience-company-logo {
+    display: block;
+    flex: 0 0 auto;
     object-fit: contain;
+    object-position: center center;
+    margin: 0;
+    padding: 0;
 }
 
-.experience-item--latest .experience-logo img {
-    max-width: 52px;
-    max-height: 52px;
+/* Exact visual boxes for each original company logo */
+.experience-logo--bayer .experience-company-logo {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.experience-logo--hcl .experience-company-logo {
+    width: 60px !important;
+    height: 12px !important;
+}
+
+.experience-logo--wisdomleaf .experience-company-logo {
+    width: 80px !important;
+    height: 32px !important;
+}
+
+.experience-logo--vmoksha .experience-company-logo {
+    width: 60px !important;
+    height: 32px !important;
 }
 
 .experience-main {
@@ -833,49 +854,21 @@ body.dark-theme .hamburger .bar {
     margin: 0 0 5px;
 }
 
-
-.experience-item:not(.experience-item--latest) .company-header h3 {
-    color: #2c3e50;
-}
-
 .experience-subrole {
     margin-top: 28px;
     padding-top: 28px;
     border-top: 1px dashed #ecf0f1;
 }
 
-.career-progression {
-    margin-top: 20px;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-.career-progression strong {
-    color: #53a35b;
-    font-weight: 400;
-}
-
-/* Dark theme: retain the existing dark palette */
 body.dark-theme .experience-item {
     border-bottom-color: #404040;
-}
-
-
-
-body.dark-theme .experience-item:not(.experience-item--latest) .company-header h3 {
-    color: #e8e8e8;
 }
 
 body.dark-theme .experience-subrole {
     border-top-color: #404040;
 }
 
-body.dark-theme .career-progression {
-    color: #bdc3c7;
-}
-
-/* Mobile */
+/* Mobile: preserve the logo dimensions, only reduce the rail width. */
 @media (max-width: 768px) {
     .experience-item {
         grid-template-columns: 58px minmax(0, 1fr);
@@ -883,30 +876,40 @@ body.dark-theme .career-progression {
         padding: 32px 0;
     }
 
-    .experience-rail::after {
-        bottom: -32px;
+    .experience-rail {
+        width: 58px;
+        min-width: 58px;
+        height: 70px;
     }
 
     .experience-logo {
-        width: 58px;
         top: 25px;
+        left: 0;
+        width: 58px;
+        height: 42px;
     }
 
-    .experience-logo img {
-        max-width: 54px;
-        max-height: 32px;
+    .experience-logo--bayer .experience-company-logo {
+        width: 32px !important;
+        height: 32px !important;
     }
 
-    .experience-item--latest .experience-logo img {
-        max-width: 46px;
-        max-height: 46px;
+    .experience-logo--hcl .experience-company-logo {
+        width: 60px !important;
+        height: 12px !important;
+    }
+
+    .experience-logo--wisdomleaf .experience-company-logo {
+        width: 80px !important;
+        height: 32px !important;
+    }
+
+    .experience-logo--vmoksha .experience-company-logo {
+        width: 60px !important;
+        height: 32px !important;
     }
 
     .experience-header {
         gap: 10px;
-    }
-
-    .career-progression {
-        font-size: 0.85rem;
     }
 }
