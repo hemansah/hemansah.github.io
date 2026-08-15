@@ -833,9 +833,6 @@ body.dark-theme .hamburger .bar {
     margin: 0 0 5px;
 }
 
-.experience-item--latest .company-header h3 {
-    color: #53a35b;
-}
 
 .experience-item:not(.experience-item--latest) .company-header h3 {
     color: #2c3e50;
