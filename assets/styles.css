@@ -819,23 +819,23 @@ body.dark-theme .hamburger .bar {
 
 /* Exact visual boxes for each original company logo */
 .experience-logo--bayer .experience-company-logo {
-    width: 32px !important;
-    height: 32px !important;
+    width: 64px !important;
+    height: 64px !important;
 }
 
 .experience-logo--hcl .experience-company-logo {
-    width: 60px !important;
-    height: 12px !important;
+    width: 100px !important;
+    height: 20px !important;
 }
 
 .experience-logo--wisdomleaf .experience-company-logo {
-    width: 80px !important;
-    height: 32px !important;
+    width: 140px !important;
+    height: 70px !important;
 }
 
 .experience-logo--vmoksha .experience-company-logo {
-    width: 60px !important;
-    height: 32px !important;
+    width: 100px !important;
+    height: 50px !important;
 }
 
 .experience-main {
